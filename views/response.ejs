@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado del pago | JoelStore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="assets/img/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+    <script>
+        console.log("--- RESPUESTA DEL API PAYPHONE ---");
+        console.dir(<%- JSON.stringify(result) %>);
+    </script>
+</head>
+<body class="result-page">
+    <header class="site-header">
+        <div class="container header-content">
+            <a class="brand" href="/">
+                <span class="brand-mark">J</span>
+                <span>Joel<span>Store</span></span>
+            </a>
+            <span class="demo-label">Entorno de pruebas</span>
+        </div>
+    </header>
+
+    <main class="result-main container">
+        <section class="result-card">
+            <div class="result-icon <%= isApproved ? 'approved' : 'not-approved' %>">
+                <%= isApproved ? '✓' : '!' %>
+            </div>
+            <p class="eyebrow centered"><span></span> Respuesta del API <span></span></p>
+            <h1><%= title %></h1>
+            <p class="result-subtitle"><%= subtitle %></p>
+
+            <% if (result) { %>
+                <div class="result-grid">
+                    <article>
+                        <span>Estado</span>
+                        <strong><%= result.transactionStatus || (error ? 'Error' : 'Sin información') %></strong>
+                    </article>
+                    <article>
+                        <span>ID de transacción</span>
+                        <strong><%= result.transactionId || id || '—' %></strong>
+                    </article>
+                    <article>
+                        <span>Monto</span>
+                        <strong><%= result.amount ? moneyFromCents(result.amount) : '—' %></strong>
+                    </article>
+                    <article>
+                        <span>Autorización</span>
+                        <strong><%= result.authorizationCode || '—' %></strong>
+                    </article>
+                    <article>
+                        <span>Referencia del comercio</span>
+                        <strong><%= result.clientTransactionId || clientTxId || '—' %></strong>
+                    </article>
+                    <article>
+                        <span>Forma de pago</span>
+                        <strong><%= result.cardBrand || result.transactionType || '—' %></strong>
+                    </article>
+                </div>
+            <% } %>
+
+            <div class="response-panel">
+                <div class="response-panel-heading">
+                    <div>
+                        <span>Servidor → API Payphone → Servidor</span>
+                        <h2>Response recibido</h2>
+                    </div>
+                    <small>HTTP <%= httpCode || '—' %></small>
+                </div>
+                <pre><%= JSON.stringify(result || { message: error }, null, 2) %></pre>
+            </div>
+
+            <a href="/" class="result-link">← Volver a la tienda</a>
+        </section>
+    </main>
+</body>
+</html>
