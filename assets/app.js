@@ -4,7 +4,7 @@ const products = [
     name: 'Coca Cola 3.05 L',
     category: 'Bebida',
     description: 'COLA COCA COLA 3.05 L',
-    priceCents: 100,
+    priceCents: 300,
     badge: 'Popular',
     rating: '4.9',
     image: 'assets/img/cola-grande.webp'
@@ -14,7 +14,7 @@ const products = [
     name: 'Coca Cola 500ML',
     category: 'Bebida',
     description: 'COLA COCA COLA 500 ML',
-    priceCents: 300,
+    priceCents: 105,
     badge: 'Nuevo',
     rating: '4.6',
     image: 'assets/img/cola.webp'
