@@ -7,6 +7,9 @@ pipeline {
 
     environment {
         NODE_ENV = 'test'
+        PAYPHONE_TOKEN = credentials('payphone-token')
+        PAYPHONE_STORE_ID = credentials('payphone-store-id')
+        PAYPHONE_CONFIRM_URL = credentials('payphone-confirm-url')
     }
 
     stages {
