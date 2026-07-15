@@ -115,6 +115,9 @@ app.get('/response', async (req, res) => {
 if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`JoelStore corriendo en http://localhost:${PORT}`);
+    console.log('[CONFIG] confirmUrl:', config.confirmUrl);
+    console.log('[CONFIG] token presente:', !!config.token);
+    console.log('[CONFIG] storeId presente:', !!config.storeId);
   });
 }
 
