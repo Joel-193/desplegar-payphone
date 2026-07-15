@@ -28,9 +28,24 @@ pipeline {
             }
         }
 
+        stage('Build Docker') {
+            steps {
+                sh 'docker build -t joelstore-payphone:latest .'
+            }
+        }
+
         stage('Deploy') {
             steps {
-                sh 'pm2 restart joelstore || pm2 start server.js --name joelstore'
+                sh '''
+                    docker stop joelstore-payphone || true
+                    docker rm joelstore-payphone || true
+                    docker run -d --name joelstore-payphone -p 3000:3000 \
+                      -e PORT=3000 \
+                      -e PAYPHONE_TOKEN="${PAYPHONE_TOKEN}" \
+                      -e PAYPHONE_STORE_ID="${PAYPHONE_STORE_ID}" \
+                      -e PAYPHONE_CONFIRM_URL="${PAYPHONE_CONFIRM_URL}" \
+                      joelstore-payphone:latest
+                '''
             }
         }
     }
