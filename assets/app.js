@@ -1,7 +1,7 @@
 const products = [
   {
     id: 'coca-cola-grande',
-    name: 'Coca Cola 3.05 L',
+    name: 'Coca Cola Grande 3.05 L',
     category: 'Bebida',
     description: 'COLA COCA COLA 3.05 L',
     priceCents: 300,
@@ -10,8 +10,8 @@ const products = [
     image: 'assets/img/cola-grande.webp'
   },
   {
-    id: 'coca-cola-pequeña',
-    name: 'Coca Cola 500ML',
+    id: 'coca-cola',
+    name: 'Coca Cola Pequeña 500ML',
     category: 'Bebida',
     description: 'COLA COCA COLA 500 ML',
     priceCents: 105,
