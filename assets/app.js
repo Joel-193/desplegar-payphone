@@ -10,7 +10,7 @@ const products = [
     image: 'assets/img/cola-grande.webp'
   },
   {
-    id: 'coca-cola',
+    id: 'coca-cola-pequeña',
     name: 'Coca Cola 500ML',
     category: 'Bebida',
     description: 'COLA COCA COLA 500 ML',
