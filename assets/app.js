@@ -3,7 +3,7 @@ const products = [
     id: 'coca-cola-grande',
     name: 'Coca Cola Grande 3.05 L',
     category: 'Bebida',
-    description: 'COLA COCA COLA 3.05 L',
+    description: 'COLA COCA 3.05 L',
     priceCents: 300,
     badge: 'Popular',
     rating: '4.9',
